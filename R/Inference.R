@@ -91,10 +91,10 @@ discreteStatesFromBN <- function(bn, dag){
       k <- k+1
       if(is.root(variables[i], dag)){
         states <- names(bn[[i]]$functions[[1]]$coeff)
-      }else if(!is.null(names(bn[[i]]$functions[[1]]$Px$coeff))){ 
-        states <- names(bn[[i]]$functions[[1]]$Px$coeff)
+      }else if(!is.null(names(bn[[i]]$functions[[length(bn[[i]]$functions)]]$Px$coeff))){ 
+        states <- names(bn[[i]]$functions[[length(bn[[i]]$functions)]]$Px$coeff)
       }else{
-        states <- names(bn[[i]]$functions[[1]]$Px[[1]]$coeff)
+        states <- names(bn[[i]]$functions[[length(bn[[i]]$functions)]]$Px[[1]]$coeff)
       }
       
       discreteStates[[k]] <- states
